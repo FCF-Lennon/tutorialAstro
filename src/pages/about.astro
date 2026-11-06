@@ -1,23 +1,24 @@
 ---
-    import '../styles/global.css';
-    import Navigation from '../components/Navigation.astro';
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import Footer  from '../components/Footer.astro';
 
-    const pageTitle = "Sobre mi";
-    const identify = {
-        firstname: "Sarah", 
-        country: "Canada",
-        occupation: "Escritor técnico",
-        hobbies: ["fotografia", "observación", "peñarol"],
-    };
-    const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Redacción de documentos"];
-    
-    const happy  = true;
-    const finished = false;
-    const goal = 3;
+const pageTitle = "Sobre mi";
+const identify = {
+    firstname: "Sarah", 
+    country: "Canada",
+    occupation: "Escritor técnico",
+    hobbies: ["fotografia", "observación", "peñarol"],
+};
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Redacción de documentos"];
 
-    const skillColor = "crimson";
-    const fontWeight = "bold";
-    const textCase = "uppercase"; 
+const happy  = true;
+const finished = false;
+const goal = 3;
+
+const skillColor = "crimson";
+const fontWeight = "bold";
+const textCase = "uppercase"; 
 ---
 
 <!DOCTYPE html>
@@ -61,5 +62,7 @@
     {happy && <p>¡Estoy feliz de aprender Astro!</p>}
     {finished && <p>¡He terminado este tutorial!</p>}
     {goal === 3 ? <p>Mi objetivo es terminar en 3 días</p> : <p>Mi objetivo no son 3 días</p>}
+
+    <Footer />
 </body>
 </html>
