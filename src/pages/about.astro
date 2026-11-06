@@ -1,4 +1,6 @@
 ---
+import { toLowerCase, toUpperCase, uppercase } from "astro:schema";
+
     const pageTitle = "Sobre mi";
     const identify = {
         firstname: "Sarah", 
@@ -7,9 +9,14 @@
         hobbies: ["fotografia", "observación", "peñarol"],
     };
     const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Redacción de documentos"];
+    
     const happy  = true;
     const finished = false;
     const goal = 3;
+
+    const skillColor = "crimson";
+    const fontWeight = "bold";
+    const textCase = "uppercase"; 
 ---
 
 <!DOCTYPE html>
@@ -18,6 +25,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{pageTitle}</title>
+    <style define:vars={{skillColor, fontWeight, textCase}}>
+        h1{
+            color: purple;
+            font-size: 4rem;
+        }
+        .skill {
+            color: var(--skillColor);
+            font-weight: var(--fontWight);
+            text-transform: var(--textCase);
+        }
+    </style>
 </head>
 <body>
     <a href="/">Inicio</a>
@@ -30,15 +48,15 @@
     <p>Este sitio se irá actualizando a medida que vaya completando más partes del tutorial, ¡asì que no dejes de visitarlo para ver cómo va mi viaje! </p>
     <p>He aquí algunos datos sobre mí:</p>
     <ul>
-        <li>Me llamo {identify.firstname}</li>
-        <li>Vivo en {identify.country} y trabajo como {identify.occupation}</li>
+        <li class="skill">Me llamo {identify.firstname}</li>
+        <li class="skill">Vivo en {identify.country} y trabajo como {identify.occupation}</li>
         {identify.hobbies.length >= 2 &&
-        <li>Dos de mis aficiones son: {identify.hobbies[0]} y {identify.hobbies[1]}</li>
+        <li class="skill">Dos de mis aficiones son: {identify.hobbies[0]} y {identify.hobbies[1]}</li>
         }
     </ul>
     <p>mis habilidades son:</p>
     <ul>
-        {skills.map((skill) => <li>{skill}</li>)}
+        {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
     {happy && <p>¡Estoy feliz de aprender Astro!</p>}
     {finished && <p>¡He terminado este tutorial!</p>}
