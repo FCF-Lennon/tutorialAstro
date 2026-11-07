@@ -9,5 +9,5 @@ const { frontmatter } = Astro.props;
     <p>Escrito por {frontmatter.author}</p>
     <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
     <slot />
-    <p>{frontmatter.tags.join(", ")}</p>
+    <p>Tags: {frontmatter.tags.join(", ")}</p>
 </BaseLayout>
